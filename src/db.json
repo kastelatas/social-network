@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "user@mail.ru",
+      "password": "123",
+      "firstname": "timur",
+      "lastname": "ulbi",
+      "age": 22,
+      "avatar": "youtube.com",
+      "createdAt": "05.06.2022"
+    }
+  ],
+  "groups": [],
+  "group-members": [],
+  "posts": [],
+  "post-likes": [],
+  "post-dislikes": [],
+  "post-comments": [],
+  "comments": [],
+  "chats": [],
+  "messages": [],
+  "chat-members": [],
+  "friends": [
+    {
+      "userId": "1",
+      "friendId": "2",
+      "createdAt": "05.06.2022"
+    }
+  ],
+  "followers": [
+    {
+      "userId": "1",
+      "followerId": "2",
+      "createdAt": "05.06.2022"
+    }
+  ],
+  "user-posts": [],
+  "group-posts": []
+}
