@@ -1,9 +1,13 @@
 import React from 'react';
 
-const BaseLayout = () => {
+interface IBaseLayout {
+  children: React.ReactNode
+}
+
+const BaseLayout = (props: IBaseLayout) => {
   return (
     <div>
-      BaseLayout
+      {props.children}
     </div>
   );
 };

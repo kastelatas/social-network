@@ -1,9 +1,15 @@
 import React from 'react';
+import Header from "../components/Header";
 
-const AuthLayout = () => {
+interface IAuthLayout {
+  children: React.ReactNode
+}
+
+const AuthLayout = (props : IAuthLayout) => {
   return (
-    <div>
-      AuthLayout
+    <div className="auth-layout">
+      <Header/>
+      { props?.children }
     </div>
   );
 };

@@ -1,7 +1,12 @@
 import React from 'react';
-import './assets/css/App.css';
-import {BrowserRouter, Route, Switch, RouteComponentProps, Redirect} from "react-router-dom";
+import './assets/css/App.scss';
 import routes from './config/routes';
+import
+{ BrowserRouter,
+  Route,
+  Switch,
+  RouteComponentProps,
+  Redirect } from "react-router-dom";
 
 function App() {
   const authUser = true;
@@ -25,7 +30,10 @@ function App() {
                         {...route.props}
                       />
                     ) : (
-                      <Redirect to="/login" name={route.name} {...props} {...route.props}/>
+                      <Redirect to={{
+                        pathname: '/login'
+                      }}/>
+
                     )
                   }
                 />

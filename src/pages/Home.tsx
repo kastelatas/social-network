@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import logging from "../config/logging";
+import BaseLayout from "../layouts/BaseLayout";
 
 const Home = (props: { name: string; }) => {
 
@@ -8,10 +9,11 @@ const Home = (props: { name: string; }) => {
   }, [props.name])
 
   return (
-    <div>
+    <BaseLayout>
       Home
-    </div>
+    </BaseLayout>
   );
 };
 
 export default Home;
+

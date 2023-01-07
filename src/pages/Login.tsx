@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import logging from "../config/logging";
+import AuthLayout from "../layouts/AuthLayout";
+import LoginForm from "../components/LoginForm";
 
-const Login = () => {
+const Login = (props: { name: unknown; }) => {
+
+  useEffect(() => {
+    logging.info(`Loading ${props.name}`)
+  }, [props.name])
+
   return (
-    <div>
-      Login
-    </div>
+    <AuthLayout>
+      <div className="login">
+        <LoginForm />
+      </div>
+    </AuthLayout>
   );
 };
 

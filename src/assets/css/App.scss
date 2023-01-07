@@ -1,0 +1,44 @@
+@import "layouts/authLayout";
+
+@import "pages/home";
+@import "pages/login";
+
+@import "components/header";
+@import "components/UI/button";
+@import "components/loginForm";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.container {
+  max-width: calc(100% - 300px);
+  margin: 0 auto;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.ia-center {
+  align-items: center;
+}
+
+.col-6 {
+  width: 100%;
+  max-width: 50%;
+  height: 100%;
+}
