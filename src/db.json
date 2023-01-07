@@ -2,6 +2,7 @@
   "users": [
     {
       "id": "1",
+      "userName": "user",
       "email": "user@mail.ru",
       "password": "123",
       "firstname": "timur",

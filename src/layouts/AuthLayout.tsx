@@ -6,10 +6,11 @@ interface IAuthLayout {
 }
 
 const AuthLayout = (props : IAuthLayout) => {
+  const {children} = props
   return (
     <div className="auth-layout">
       <Header/>
-      { props?.children }
+      { children }
     </div>
   );
 };

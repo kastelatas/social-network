@@ -3,7 +3,7 @@ import logging from "../config/logging";
 import AuthLayout from "../layouts/AuthLayout";
 import LoginForm from "../components/LoginForm";
 
-const Login = (props: { name: unknown; }) => {
+const Login = (props: { name: string; }) => {
 
   useEffect(() => {
     logging.info(`Loading ${props.name}`)

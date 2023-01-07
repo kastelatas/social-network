@@ -1,16 +1,23 @@
 @import "layouts/authLayout";
+@import "layouts/baseLayout";
 
 @import "pages/home";
 @import "pages/login";
+@import "pages/signUp";
 
 @import "components/header";
-@import "components/UI/button";
 @import "components/loginForm";
+@import "components/signUpForm";
+@import "components/leftSideBar";
+@import "components/UI/button";
+@import "components/UI/input";
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  outline: none;
+  text-decoration: none;
 }
 
 .App {
@@ -26,6 +33,12 @@
 .row {
   display: flex;
   flex-direction: row;
+  height: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 

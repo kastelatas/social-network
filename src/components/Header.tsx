@@ -1,30 +1,34 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import Logo from './Logo';
 import Button from "./UI/Button";
-import logging from "../config/logging";
 
 const Header = () => {
-  const [openLogin, setOpenLogin] = useState<boolean>(false)
-
-  const openLoginForm = () => {
-    logging.info("OPEN LOGIN FORM")
-  }
+  const userAuth: boolean = true;
 
   return (
     <div className="header">
-     <div className="container">
-       <div className="row">
-         <div className="col-6">
-           <Logo/>
-         </div>
-         <div className="col-6">
-          <div className="sign-group">
-            <Button text="Log In"  onClick={openLoginForm}/>
-            <Button text="Sign up"/>
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+            <Link to="/">
+              <Logo/>
+            </Link>
           </div>
-         </div>
-       </div>
-     </div>
+          <div className="col-6">
+            <div className="sign-group">
+              {
+                userAuth ? (
+                  <>
+                    <Button text="Log In" link href="/login"/>
+                    <Button text="Sign up" link href="/signUp"/>
+                  </>
+                ) : <Button text="Log Out" />
+              }
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

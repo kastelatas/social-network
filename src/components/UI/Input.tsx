@@ -1,10 +1,20 @@
 import React from 'react';
 
-const Input = () => {
+interface IInput {
+  callback?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  name: string;
+  placeholder: string;
+  value?: string;
+  type?: string;
+}
+
+const Input = (props: IInput) => {
+  const {callback, name, placeholder, value, type} = props
+
   return (
-    <>
-      <input type="text"/>
-    </>
+    <div className="input-text">
+      <input type={type} name={name} onChange={callback} placeholder={placeholder} value={value}/>
+    </div>
   );
 };
 

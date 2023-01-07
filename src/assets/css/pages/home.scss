@@ -1,3 +1,29 @@
 .home {
+  width: 100%;
 
+  .profile {
+    width: 100%;
+    background: #ffffff;
+
+    &_img {
+
+    }
+
+    &_title {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 26px;
+      color: #000000;
+    }
+
+    &_description {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      text-align: right;
+      color: #000000;
+    }
+  }
 }
