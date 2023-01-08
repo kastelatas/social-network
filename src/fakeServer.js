@@ -1,3 +1,6 @@
+const fs = require('fs');
+const jsonServer = require('json-server');
+const path = require('path');
 const server = jsonServer.create();
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 server.use(jsonServer.defaults({}));
@@ -10,10 +13,11 @@ server.use(async (req, res, next) => {
     });
     next();
 });
-// Эндпоинт для логина
+
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
+        console.log(username, password)
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const { users = [] } = db;
         // находим в бд пользователя с таким username и password
