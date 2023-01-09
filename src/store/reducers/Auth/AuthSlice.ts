@@ -52,7 +52,11 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.error = ''
       state.user = action.payload
-      localStorage.setItem('token', 'userSUCCESS')
+      const data = {
+        username: action.payload.username,
+        password: action.payload.password
+      }
+      localStorage.setItem('token', JSON.stringify(data))
     },
     signUpFetchingError(state, action: PayloadAction<string>) {
       state.isLoading = false;

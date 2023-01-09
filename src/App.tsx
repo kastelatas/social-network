@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './assets/css/App.scss';
 import routes from './config/routes';
 import 'react-notifications-component/dist/theme.css'
@@ -13,10 +13,14 @@ import
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
 import {isEmpty} from './utils/isEmptyObject';
 import {login} from './store/reducers/Auth/AuthActionCreators';
+import Notification from "./components/Notification";
+import Loader from "./components/Loader";
+import {timeOut} from "./utils/timeOut";
 
 function App() {
   const dispatch = useAppDispatch()
   const {user} = useAppSelector(state => state.AuthSlice)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     let token = JSON.parse(localStorage.getItem('token') as string) || ""
@@ -24,11 +28,15 @@ function App() {
     if (token) {
       dispatch(login(token))
     }
+
+    timeOut(1000, () => setIsLoading(false))
   }, [])
 
 
   return (
     <div className="App">
+      {isLoading && <Loader/>}
+      <Notification title="Registration completed successfully" container="bottom-right"/>
       <BrowserRouter>
         <Switch>
           {
@@ -64,3 +72,4 @@ function App() {
 }
 
 export default App
+

@@ -18,6 +18,62 @@
       "firstname": "user1name",
       "lastname": "user1surname",
       "id": "RxR88-8"
+    },
+    {
+      "username": "kastelatas",
+      "password": "remarka-51",
+      "email": "kas@gmail.com",
+      "firstname": "Bohdan",
+      "lastname": "Volkov",
+      "id": "PXd3h6t"
+    },
+    {
+      "username": "user11",
+      "password": "123",
+      "email": "user11@mail.com",
+      "firstname": "name",
+      "lastname": "surname",
+      "id": "G6-XmOg"
+    },
+    {
+      "username": "user22",
+      "password": "123",
+      "email": "user22@mail.com",
+      "firstname": "name",
+      "lastname": "surname",
+      "id": "vgIMKiB"
+    },
+    {
+      "username": "user33",
+      "password": "123",
+      "email": "user33@mail.com",
+      "firstname": "name",
+      "lastname": "surname",
+      "id": "Nuyx_Ug"
+    },
+    {
+      "username": "user44",
+      "password": "123",
+      "email": "user44@mail.com",
+      "firstname": "user",
+      "lastname": "surname",
+      "id": "Oj7EPeG"
+    },
+    {
+      "username": "user55",
+      "password": "123",
+      "email": "user55@mail.com",
+      "firstname": "name",
+      "lastname": "surname",
+      "id": "uU0hrbG"
+    },
+    {
+      "username": "user111",
+      "password": "123",
+      "email": "user111@mail.com",
+      "firstname": "name",
+      "lastname": "surname",
+      "id": "2uKy4HW"
     }
   ],
   "groups": [],

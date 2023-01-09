@@ -4,8 +4,10 @@ import Button from "./UI/Button";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {IUserSignUp, signUp} from "../store/reducers/Auth/AuthActionCreators";
 import {INotifications, NotificationContext} from "../contexts/NotificationContext";
+import {useHistory} from "react-router-dom";
 
 const SignUpForm = () => {
+  const history = useHistory()
   const dispatch = useAppDispatch()
   const {setNotifications} = useContext(NotificationContext) as INotifications
 
@@ -19,7 +21,6 @@ const SignUpForm = () => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-
 
     let isValid: boolean = Boolean(userLogin.length || userPassword.length || userEmail.length || userName.length || userSurname.length)
 
@@ -44,7 +45,7 @@ const SignUpForm = () => {
         // setUserName('')
         // setUserEmail('')
         // setUserSurname('')
-        // history.push('/login')
+        history.push('/')
       })
     }
   }
