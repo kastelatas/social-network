@@ -1,13 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import AuthLayout from "../layouts/AuthLayout";
-import logging from "../config/logging";
 import SignUpForm from "../components/SignUpForm";
+import {useAppSelector} from "../hooks/redux";
 
 const SignUp = (props: { name: string; }) => {
+  const {} = useAppSelector(state => state.AuthSlice)
 
-  useEffect(() => {
-    logging.info(`Loading ${props.name}`)
-  }, [props.name])
 
   return (
     <AuthLayout>
@@ -18,4 +16,4 @@ const SignUp = (props: { name: string; }) => {
   );
 };
 
-export default SignUp;
+export default React.memo(SignUp);

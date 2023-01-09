@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import {setupStore} from "./store/store";
 import {Provider} from "react-redux";
+import {NotificationProvider} from './contexts/NotificationContext';
 
 const store = setupStore();
 
@@ -13,9 +14,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App/>
-    </Provider>
+    <NotificationProvider>
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    </NotificationProvider>
   </React.StrictMode>
 );
 

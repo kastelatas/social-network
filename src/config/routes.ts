@@ -1,4 +1,4 @@
-import IRoute from "../models/IRoute";
+import IRoute from "../types/IRoute";
 import Home from "../pages/Home";
 import Chat from "../pages/Chat";
 import Friends from "../pages/Friends";

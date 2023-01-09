@@ -1,16 +1,21 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import UserSlice from "./reducers/UserSlice";
+import AuthSlice from "./reducers/Auth/AuthSlice";
+import ChatsSlice from "./reducers/Chats/ChatsSlice";
+import CommentsSlice from "./reducers/Comments/CommentsSlice";
+import GroupsSlice from "./reducers/Groups/GroupsSlice";
+import PostsSlice from "./reducers/Posts/PostsSlice";
 
 const rootReducer = combineReducers({
-  UserSlice
+  AuthSlice,
+  ChatsSlice,
+  CommentsSlice,
+  GroupsSlice,
+  PostsSlice
 })
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
-    // middleware: (getDefaultMiddleware) => {
-    //   getDefaultMiddleware.concat()
-    // }
   })
 }
 

@@ -1,22 +1,18 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import Input from "./UI/Input";
 import Button from "./UI/Button";
-import logging from "../config/logging";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import {login} from "../store/reducers/ActionCreators";
-import IUser from "../models/IUser";
+import {login} from "../store/reducers/Auth/AuthActionCreators";
 
-const LoginForm = () => {
+const LoginForm: FC = () => {
   const dispatch = useAppDispatch()
-  const userState = useAppSelector(state => state.UserSlice.user)
+  const userState = useAppSelector(state => state.AuthSlice.user)
   const [userName, setUserName] = useState<string>("")
   const [userPassword, setUserPassword] = useState<string>("")
   const [error, setError] = useState<string>("")
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    // logging.info("LOGIN FORM SUBMIT")
-    // logging.info(`${userName} ${userPassword}`)
 
     if (!userName.length || !userPassword.length) {
       setError("Please enter password or username")
