@@ -10,42 +10,55 @@ import
   RouteComponentProps,
   Redirect
 } from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "./hooks/redux";
+import {isEmpty} from './utils/isEmptyObject';
+import {login} from './store/reducers/Auth/AuthActionCreators';
 
 function App() {
-  const authUser = true;
+  const dispatch = useAppDispatch()
+  const {user} = useAppSelector(state => state.AuthSlice)
+
+  useEffect(() => {
+    let token = JSON.parse(localStorage.getItem('token') as string) || ""
+
+    if (token) {
+      dispatch(login(token))
+    }
+  }, [])
 
 
   return (
     <div className="App">
-        <BrowserRouter>
-          <Switch>
-            {
-              routes.map((route, index) => {
-                return (
-                  <Route
-                    key={index}
-                    path={route.path}
-                    exact={route.exact}
-                    render={(props: RouteComponentProps<any>) =>
-                      authUser ? (
-                        <route.component
-                          name={route.name}
-                          {...props}
-                          {...route.props}
-                        />
-                      ) : (
-                        <Redirect to={{
-                          pathname: '/login'
-                        }}/>
+      <BrowserRouter>
+        <Switch>
+          {
+            routes.map((route, index) => {
+              return (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  render={(props: RouteComponentProps<any>) =>
+                    !isEmpty(user) ? (
+                      <route.component
+                        name={route.name}
+                        {...props}
+                        {...route.props}
+                      />
+                    ) : (
+                      <Redirect to={{
+                        pathname: '/login'
+                      }}/>
 
-                      )
-                    }
-                  />
-                );
-              })
-            }
-          </Switch>
-        </BrowserRouter>
+                    )
+                  }
+                />
+              );
+            })
+          }
+          <Route path="/"/>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

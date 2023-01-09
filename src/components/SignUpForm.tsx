@@ -1,21 +1,15 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext,  useState} from 'react';
 import Input from "./UI/Input";
 import Button from "./UI/Button";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {IUserSignUp, signUp} from "../store/reducers/Auth/AuthActionCreators";
-import { useHistory } from 'react-router-dom';
-import logging from "../config/logging";
-import {ReactNotifications} from "react-notifications-component";
-import { Store } from 'react-notifications-component';
-import {iNotification} from "react-notifications-component/dist/src/typings";
-import {INotification, NotificationContext} from "../contexts/NotificationContext";
+import {INotifications, NotificationContext} from "../contexts/NotificationContext";
 
 const SignUpForm = () => {
-  const history = useHistory()
   const dispatch = useAppDispatch()
-  const {setNotifications} = useContext(NotificationContext) as INotification
+  const {setNotifications} = useContext(NotificationContext) as INotifications
 
-  const {isLoading, user, error: errorMsg} = useAppSelector(state => state.AuthSlice)
+  const {isLoading} = useAppSelector(state => state.AuthSlice)
   const [userLogin, setUserLogin] = useState<string>("")
   const [userPassword, setUserPassword] = useState<string>("")
   const [userEmail, setUserEmail] = useState<string>("")
@@ -45,6 +39,11 @@ const SignUpForm = () => {
         setNotifications({
           successSignUp: true
         })
+        // setUserSurname('')
+        // setUserLogin('')
+        // setUserName('')
+        // setUserEmail('')
+        // setUserSurname('')
         // history.push('/login')
       })
     }

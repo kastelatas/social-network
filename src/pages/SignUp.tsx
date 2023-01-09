@@ -16,4 +16,4 @@ const SignUp = (props: { name: string; }) => {
   );
 };
 
-export default React.memo(SignUp);
+export default SignUp;

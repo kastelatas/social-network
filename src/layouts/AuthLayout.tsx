@@ -1,6 +1,6 @@
 import React, {FC, useContext, useEffect} from 'react';
 import Header from "../components/Header";
-import {NotificationContext, INotification} from "../contexts/NotificationContext";
+import {NotificationContext, INotifications} from "../contexts/NotificationContext";
 import {Store, ReactNotifications} from "react-notifications-component";
 import {iNotification} from "react-notifications-component/dist/src/typings";
 
@@ -11,7 +11,7 @@ interface IAuthLayout {
 const AuthLayout: FC<any> = (props : IAuthLayout) => {
   const {children} = props
 
-  const {notifications} = useContext(NotificationContext) as INotification
+  const {notifications} = useContext(NotificationContext) as INotifications
 
   const notification: iNotification = {
     title: "Registration completed successfully!",
@@ -25,7 +25,6 @@ const AuthLayout: FC<any> = (props : IAuthLayout) => {
 
   useEffect(() => {
     if (notifications.successSignUp) {
-      console.log('notifications.successSignUp', notifications.successSignUp)
       Store.addNotification({
         ...notification,
       })

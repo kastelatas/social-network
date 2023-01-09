@@ -10,6 +10,7 @@ interface AuthState {
 const initialState: AuthState = {
   user: {
     id: '',
+    username: "",
     email: '',
     password: '',
     firstname: '',
@@ -33,7 +34,11 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.error = ''
       state.user = action.payload
-      localStorage.setItem('token', 'userSUCCES')
+      const data = {
+        username: action.payload.username,
+        password: action.payload.password
+      }
+      localStorage.setItem('token', JSON.stringify(data))
     },
     loginFetchingError(state, action: PayloadAction<string>) {
       state.isLoading = false;
@@ -47,11 +52,25 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.error = ''
       state.user = action.payload
-      localStorage.setItem('token', 'userSUCCES')
+      localStorage.setItem('token', 'userSUCCESS')
     },
     signUpFetchingError(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload
+    },
+    clearUser(state) {
+      console.log(11)
+      state.user = {
+        id: '',
+        username: "",
+        email: '',
+        password: '',
+        firstname: '',
+        lastname: '',
+        age: 0,
+        avatar:'',
+        createdAt: '',
+      }
     }
   },
 })

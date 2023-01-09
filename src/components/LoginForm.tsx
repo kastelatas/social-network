@@ -3,10 +3,12 @@ import Input from "./UI/Input";
 import Button from "./UI/Button";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {login} from "../store/reducers/Auth/AuthActionCreators";
+import {useHistory} from "react-router-dom";
 
 const LoginForm: FC = () => {
+  const history = useHistory()
   const dispatch = useAppDispatch()
-  const userState = useAppSelector(state => state.AuthSlice.user)
+  const {isLoading} = useAppSelector(state => state.AuthSlice)
   const [userName, setUserName] = useState<string>("")
   const [userPassword, setUserPassword] = useState<string>("")
   const [error, setError] = useState<string>("")
@@ -19,10 +21,13 @@ const LoginForm: FC = () => {
       return
     } else {
       setError("")
-      dispatch(login({
+      let data = {
         username: userName,
         password: userPassword
-      }))
+      }
+      dispatch(login(data)).then(res => res).then(user => {
+        history.push('/')
+      })
     }
 
   }
@@ -37,8 +42,6 @@ const LoginForm: FC = () => {
 
   return (
     <div className="login-form">
-      {userState.firstname} <br/>
-      {userState.lastname}
       <form onSubmit={onSubmit}>
         <h3 className="title">Login</h3>
         <div className="column">
@@ -55,7 +58,7 @@ const LoginForm: FC = () => {
             name="password"
             placeholder="Enter password..."/>
           <span>{error}</span>
-          <Button text="Login" pink/>
+          <Button text={!isLoading ? "Login" : "LOADING"} pink/>
         </div>
       </form>
     </div>

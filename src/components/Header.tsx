@@ -1,10 +1,19 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import Logo from './Logo';
 import Button from "./UI/Button";
+import {useAppDispatch, useAppSelector} from "../hooks/redux";
+import {logout} from '../store/reducers/Auth/AuthActionCreators';
 
 const Header = () => {
-  const userAuth: boolean = true;
+  const {user} = useAppSelector(state => state.AuthSlice)
+  const dispatch = useAppDispatch()
+  const history = useHistory()
+
+  const handleLogout = () => {
+    dispatch(logout())
+    history.push('/login')
+  }
 
   return (
     <div className="header">
@@ -18,12 +27,12 @@ const Header = () => {
           <div className="col-6">
             <div className="sign-group">
               {
-                userAuth ? (
+                !user.id ? (
                   <>
                     <Button text="Log In" link href="/login"/>
                     <Button text="Sign up" link href="/signUp"/>
                   </>
-                ) : <Button text="Log Out" />
+                ) : <Button text="Log Out" onClick={handleLogout}/>
               }
             </div>
           </div>

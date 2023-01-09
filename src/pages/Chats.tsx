@@ -2,10 +2,10 @@ import React from 'react';
 import BaseLayout from "../layouts/BaseLayout";
 import LeftSideBar from "../components/LeftSideBar";
 
-const Friends = () => {
+const Chats = () => {
   return (
     <BaseLayout>
-      <div className="friends">
+      <div className="chats">
         <div className="container">
           <div className="row">
             <LeftSideBar/>
@@ -17,4 +17,4 @@ const Friends = () => {
   );
 };
 
-export default Friends;
+export default Chats;

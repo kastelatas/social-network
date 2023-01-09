@@ -22,12 +22,12 @@ export const login = (data: IUserLogin) => async (dispatch: AppDispatch) => {
     dispatch(authSlice.actions.loginFetching())
     const response = await $api.post<IUser>('/login', data)
     dispatch(authSlice.actions.loginFetchingSuccess(response.data))
+    return response.data
   } catch (e) {
     logging.error(`/login ${e.message}`)
     dispatch(authSlice.actions.loginFetchingError(e.message))
   }
 }
-
 
 export const signUp = (data: IUserSignUp) => async (dispatch: AppDispatch) => {
   try {
@@ -39,4 +39,9 @@ export const signUp = (data: IUserSignUp) => async (dispatch: AppDispatch) => {
     logging.error(`/signUp ${e.message}`)
     dispatch(authSlice.actions.signUpFetchingError(e.message))
   }
+}
+
+export const logout = () => (dispatch: AppDispatch) => {
+  localStorage.removeItem('token')
+  dispatch(authSlice.actions.clearUser())
 }

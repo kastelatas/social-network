@@ -1,6 +1,6 @@
 import IRoute from "../types/IRoute";
 import Home from "../pages/Home";
-import Chat from "../pages/Chat";
+import Chats from "../pages/Chats";
 import Friends from "../pages/Friends";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
@@ -14,9 +14,9 @@ const routes: IRoute[] = [
     exact: true,
   },
   {
-    path: '/chat',
+    path: '/chats',
     name: "Chat Page",
-    component: Chat,
+    component: Chats,
     exact: true,
   },
   {
